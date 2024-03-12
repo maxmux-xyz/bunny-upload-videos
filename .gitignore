@@ -3,3 +3,4 @@ output/**
 mainnet/**
 archives/**
 to_upload.csv
+.DS_Store
