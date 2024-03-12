@@ -123,8 +123,6 @@ func uploadVideo(guid string, dir string, line string) {
 	libraryId := os.Getenv("LIBRARYIDPROD")
 	accessKey := os.Getenv("ACCESSKEYPROD")
 
-	println(libraryId, accessKey)
-
 	parts := strings.Split(line, ",")
 	username := parts[0]
 	filename := parts[1]
@@ -151,10 +149,12 @@ func uploadVideo(guid string, dir string, line string) {
 	req.Header.Add("AccessKey", accessKey)
 
 	res, _ := http.DefaultClient.Do(req)
+	if res.StatusCode != 200 {
+		log.Fatal("Error occurred during upload API call. Status: ", res.StatusCode)
+	}
 
 	defer res.Body.Close()
-	// body, _ := io.ReadAll(res.Body)
-	// fmt.Println(string(body)) // {"success":true,"message":"OK","statusCode":200}
+
 }
 
 func loopThroughDirectory(dir string) {
@@ -214,7 +214,6 @@ func loopThroughDirectory(dir string) {
 
 			}
 			fmt.Println("\n-------------------\n")
-
 		}
 	}
 
