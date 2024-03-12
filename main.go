@@ -51,11 +51,6 @@ type Payload struct {
 }
 
 func createVideo(title string) string {
-	// {"videoLibraryId":114828,"guid":"a2596b60-cdc4-4df4-a75f-76687d33199f","title":"Your Title Here","dateUploaded":"2024-02-25T04:47:06.1995361Z",
-	// "views":0,"isPublic":false,"length":0,"status":0,"framerate":0,"rotation":null,"width":0,"height":0,"availableResolutions":null,"thumbnailCount":0,
-	// "encodeProgress":0,"storageSize":0,"captions":[],"hasMP4Fallback":false,"collectionId":"","thumbnailFileName":"thumbnail.jpg","averageWatchTime":0,
-	// "totalWatchTime":0,"category":"unknown","chapters":[],"moments":[],"metaTags":[],"transcodingMessages":[]}
-
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatalf("Error loading .env file: %v", err)
